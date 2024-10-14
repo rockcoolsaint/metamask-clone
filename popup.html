@@ -533,10 +533,53 @@
 
             <button id="add_new_token" class="button3 connectWallet">Import</button>
 
-            <div class="accountList" id="accountList"></div>
+            <!-- <div class="accountList" id="accountList"></div> -->
           </div>
         </div>
         <!-- END OF IMPORT COMPONENT -->
+
+        <!-- IMPORT ACCOUNT -->
+        <div id="import_account" class="import_account">
+          <div class="form">
+            <img
+              id="close_import_account"
+              class="goBack"
+              src="./assets/arrowleft.png"
+              alt=""
+            />
+            <p id="heading">Import Account</p>
+            <div class="field">
+              <svg
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                height="16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+                class="input-icon"
+              >
+                <path
+                  d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
+                ></path>
+              </svg>
+              <textarea
+                type="text"
+                class="input-field"
+                placeholder="private key"
+                id="add_account_private_key"
+                name=""
+                cols="30"
+                rows="5"
+              ></textarea>
+            </div>
+
+            <button id="add_New_Account" class="button3 connectWallet">
+              Import
+            </button>
+            <div class="accountList" id="accountList">
+            </div>
+          </div>
+        </div>
+        <!-- END OF IMPORT ACCOUNT -->
 
         <!-- IMPORT ACCOUNT -->
           <div class="home" id="home">
@@ -561,15 +604,15 @@
                 <img src="./assets/buy.png" alt="" />
                 <p class="text">Buy</p>
               </div>
-              <div class="home_feature_item">
+              <div class="home_feature_item" id="open_Transfer">
                 <img src="./assets/send.png" alt="" />
                 <p class="text">Send</p>
               </div>
-              <div class="home_feature_item">
+              <div class="home_feature_item" id="openAccountImport">
                 <img src="./assets/user.png" alt="" />
                 <p class="text">Account</p>
               </div>
-              <div class="home_feature_item">
+              <div class="home_feature_item" id="open_Import">
                 <img src="./assets/import.png" alt="" />
                 <p class="text">Import</p>
               </div>
@@ -615,6 +658,7 @@
     </div>
 
     <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+    <!-- <script src="ethers.js"></script> -->
     <script src="popup.js"></script>
   </body>
 </html>

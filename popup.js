@@ -32,6 +32,10 @@ document.addEventListener("DOMContentLoaded", function(){
 
   document.getElementById("openImport").addEventListener("click", openImport);
 
+  document.getElementById("goBack_Import").addEventListener("click", importGoBack);
+
+  document.getElementById("open_assets").addEventListener("click", openAssets);
+
   document.getElementById("open_activity").addEventListener("click", openActivity);
 
   document.getElementById("goHomePage").addEventListener("click", goHomePage);
@@ -59,8 +63,8 @@ function handler(){
   const amount = document.getElementById("amount").value;
   const address = document.getElementById("address").value;
 
-  const private_key = "dvdkbsnjnnfksn";
-  const testAccount = "fbbfiaisdsuidiuvbf";
+  // const private_key = "dvdkbsnjnnfksn";
+  // const testAccount = "fbbfiaisdsuidiuvbf";
 
   // PROVIDER
   const provider = new ethers.providers.JsonRpcProvider(providerURL);
@@ -80,6 +84,8 @@ function handler(){
 
     document.getElementById("transfer_center").style.display = "none";
     const a = document.getElementById("link");
+
+    a.href = `https://mumbai.polygonscan.com/tx/${txObj.hash}`;
 
     document.getElementById("link").style.display = "block";
   });
@@ -178,7 +184,7 @@ function signUp() {
 
     fetch(url, {
       method: "POST",
-      handlers: {
+      headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
@@ -225,7 +231,7 @@ function login(){
 
   fetch(url, {
     method: "POST",
-    handlers: {
+    headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
@@ -253,12 +259,12 @@ function logout(){
 };
 
 function openTransfer(){
-  document.getElementById("transfer_from").style.display = "block";
+  document.getElementById("transfer_form").style.display = "block";
   document.getElementById("home").style.display = "none";
 };
 
 function goBack(){
-  document.getElementById("transfer_from").style.display = "none";
+  document.getElementById("transfer_form").style.display = "none";
   document.getElementById("home").style.display = "block";
 };
 
@@ -312,7 +318,7 @@ function addToken(){
 
   fetch(url, {
     method: "POST",
-    handlers: {
+    headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
@@ -344,7 +350,7 @@ function addAccount(){
 
   fetch(url, {
     method: "POST",
-    handlers: {
+    headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
@@ -361,7 +367,7 @@ function myFunction(){
   const str = localStorage.getItem("userWallet");
   const parsedObj = JSON.parse(str);
 
-  if (parsedObj.address) {
+  if (parsedObj?.address) {
     document.getElementById("LoginUser").style.display = "none";
     document.getElementById("home").style.display = "block";
 
@@ -383,9 +389,9 @@ function myFunction(){
 
     data.data.tokens.map((token) =>
     (elements += `
-    <div class="assets_item>
+    <div class="assets_item">
     <img class="assets_item_img"
-    src=".assets/theblockchaincoders.png"
+    src="./assets/theblockchaincoders.png"
     alt=""
     />
 
